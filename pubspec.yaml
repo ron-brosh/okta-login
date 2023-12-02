@@ -1,0 +1,28 @@
+name: okta_login
+description: "Okta login widget."
+version: 0.0.1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  http: ^1.1.0
+  plugin_platform_interface: ^2.0.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  plugin:
+    platforms:
+      web:
+        pluginClass: AuthenticateUseCaseWeb
+        fileName: src/data/authenticate_use_case_web.dart
