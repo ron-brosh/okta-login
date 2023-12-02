@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:okta_login/src/domain/model/okta_configuration.dart';
 import 'package:okta_login/src/domain/model/okta_state.dart';
@@ -19,12 +20,17 @@ final class OktaLogin extends StatefulWidget {
 }
 
 class _OktaLoginState extends State<OktaLogin> {
-  OktaState _oktaState = OktaState.initialising;
+  late OktaState _oktaState;
 
   @override
   void initState() {
     super.initState();
-    _authenticate();
+    if (kIsWeb) {
+      _oktaState = OktaState.initialising;
+      _authenticate();
+    } else {
+      _oktaState = OktaState.success;
+    }
   }
 
   @override
